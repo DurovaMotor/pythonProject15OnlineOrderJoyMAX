@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   var CART_KEY = "hightac-joymax-cart-v1";
   var SUBMISSION_KEY = "hightac-joymax-last-submission-v1";
   var LANG_KEY = "hightac-joymax-language-v1";
@@ -138,7 +138,11 @@
     observer: null
   };
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 
   function init() {
     state.catalog = getCatalog();
